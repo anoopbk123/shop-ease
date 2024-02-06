@@ -1,0 +1,14 @@
+.form-container{
+    max-width: 600px;
+    border-radius: 2%;
+}
+.form-container, .form-control{
+    border:1px solid rgb(100, 84, 195);
+}
+.eye-icon{
+    right: 2ch;
+}
+.eye-icon.right{
+    right: -2ch;
+    top: 1.5ch
+}

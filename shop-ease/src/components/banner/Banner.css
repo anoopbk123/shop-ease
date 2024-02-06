@@ -1,0 +1,32 @@
+.banner-img{
+    transition: opacity 2s;
+    mask-image: linear-gradient( black,black,black, transparent);
+}
+.banner-container:hover .banner-img{
+    opacity: 0.9;
+}
+.banner-head{
+    text-shadow: 5px 5px 9px rgb(27, 39, 27);
+    position:absolute;
+}
+.cart-icon{
+    top:10%;
+    left:0;
+    animation-name: cart-move;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    transition: transform 0.5s;
+}
+@keyframes cart-move{
+    from{
+        left:0vw
+    }
+    to{
+        left:80vw;
+    }
+}
+@media screen and (max-width:400px){
+    .banner-head{
+        position:relative;
+    }
+}

@@ -1,0 +1,14 @@
+.feature-img{
+    height: 100%;
+    border-radius: 5%!important;
+}
+.feature{
+    transition:transform 1s,
+}
+.feature:hover{
+ transform: scale(1.05);
+}
+.feature-description{
+    text-align: justify;
+    text-indent: 10%;
+}
