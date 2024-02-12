@@ -15,7 +15,7 @@ export default function UserSignUp() {
   const [userNameError, setUserNameError] = useState(true);
   const [emailError, setEmailError] = useState(true);
   const [passwordError, setPasswordError] = useState(true);
-  const [confirmPasswordError, setConfirmPasswordError] = useState(true);
+  // const [confirmPasswordError, setConfirmPasswordError] = useState(true);
   const [phoneError, setPhoneError] = useState(true);
   const [addressError, setAddressError] = useState(true);
   //form inputs

@@ -1,0 +1,23 @@
+.filter-form-container{
+    transition: max-height 1s, padding 1s;
+    border-radius: 20px;
+}
+.filter-form-hidden.filter-form-container{
+    max-height: 0vh;
+    padding: 0!important;
+}
+.filter-form-hidden .filter-form{
+    transform: scale(0);
+}
+.filter-form-show.filter-form-container{
+    max-height: 100vw;
+}
+/* .filter-form-container{
+    transition: max-height 1s;
+}
+.filter-form-hidden.filter-form-container{
+    max-height: 0vh;
+}
+.filter-form-hidden .filter-form{
+    max-height: 0vh;
+} */
