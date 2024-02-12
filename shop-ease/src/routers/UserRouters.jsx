@@ -4,7 +4,8 @@ import UserLoginPage from '../pages/user/UserLoginPage'
 import UserNavbar from '../components/user/navbar/UserNavbar'
 import Registration from '../pages/user/Registration'
 import HomePage from '../pages/user/HomePage'
-import Products from '../pages/products/Products'
+import Products from '../pages/user/Products'
+import ProductDetailsPage from '../pages/user/ProductDetailsPage'
 
 export default function UserRouters() {
   return (
@@ -15,6 +16,7 @@ export default function UserRouters() {
       <Route path='/login' element={<UserLoginPage/>}/>
       <Route path='/signup' element={<Registration/>}/>
       <Route path='/products' element={<Products/>} />
+      <Route path='/productdetails' element={<ProductDetailsPage/>}/>
     </Routes>
     </>
   )

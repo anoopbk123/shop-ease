@@ -77,7 +77,7 @@ export default function Filter() {
       </div>
       {/* || filter icon */}
       <span
-        className="filter-icon-container display-5 position-fixed bottom-0 end-0 m-2 m-md-1"
+        className="filter-icon-container display-5 position-fixed bottom-0 end-0 m-2 m-md-1 z-3"
         onClick={() =>
           toggleFilter === "hidden"
             ? setToggleFilter("show")

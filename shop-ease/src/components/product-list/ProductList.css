@@ -1,0 +1,7 @@
+.product-card{
+    z-index: 0!important;
+    transition: transform 0.5s;
+}
+.product-card:hover{
+    transform: scale(1.05);
+}

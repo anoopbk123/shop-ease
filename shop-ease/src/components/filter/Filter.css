@@ -1,6 +1,7 @@
 .filter-form-container{
     transition: max-height 1s, padding 1s;
     border-radius: 20px;
+    z-index: 999;
 }
 .filter-form-hidden.filter-form-container{
     max-height: 0vh;
@@ -10,7 +11,7 @@
     transform: scale(0);
 }
 .filter-form-show.filter-form-container{
-    max-height: 100vw;
+    max-height: 50vh;
 }
 /* .filter-form-container{
     transition: max-height 1s;
