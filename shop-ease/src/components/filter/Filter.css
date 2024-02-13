@@ -1,24 +1,15 @@
 .filter-form-container{
-    transition: max-height 1s, padding 1s;
+    transition: max-height 1s, max-width 1s, padding 1s;
     border-radius: 20px;
     z-index: 999;
+    overflow: hidden;
 }
 .filter-form-hidden.filter-form-container{
     max-height: 0vh;
+    max-width: 0vw;
     padding: 0!important;
-}
-.filter-form-hidden .filter-form{
-    transform: scale(0);
 }
 .filter-form-show.filter-form-container{
     max-height: 50vh;
+    max-width: 80vw
 }
-/* .filter-form-container{
-    transition: max-height 1s;
-}
-.filter-form-hidden.filter-form-container{
-    max-height: 0vh;
-}
-.filter-form-hidden .filter-form{
-    max-height: 0vh;
-} */
