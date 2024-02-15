@@ -24,14 +24,14 @@ export default function AdminNavbar() {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <Link class="nav-link text-dark" aria-current="page" to="/">
+                <Link class="nav-link text-dark" aria-current="page" to="/admin/createproduct">
                   Create Product
                 </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Products
-                </a>
+                <Link class="nav-link" to="/admin/manageproducts">
+                  Manage Products
+                </Link>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
@@ -39,9 +39,9 @@ export default function AdminNavbar() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <Link class="nav-link" to="/admin/userlist">
                   Users
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
                 <Link class="nav-link" to="/admin">
