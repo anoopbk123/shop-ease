@@ -1,8 +1,10 @@
 import React from "react";
 import "./ManageProducts.css";
 import features from '../../../data/features'
+import { useNavigate } from "react-router-dom";
 
 export default function ManageProducts() {
+  const navigate = useNavigate()
   return (
     <div className="container mt-5 pt-3">
       <h2 className="h2">Manage products</h2>
@@ -11,6 +13,7 @@ export default function ManageProducts() {
   <thead>
     <tr>
       <th scope="col">id</th>
+      <th scope="col">Picture</th>
       <th scope="col">Name</th>
       <th scope="col">Category</th>
       <th scope="col">Price</th>
@@ -22,11 +25,12 @@ export default function ManageProducts() {
     {features.map(value => (
         <tr>
         <th scope="row">1</th>
+        <td><img className="pd-img img-fluid" src={value.img} alt="" /></td>
         <td>Mark</td>
         <td>Otto</td>
         <td>@mdo</td>
         <td>23</td>
-        <td><button className="btn btn-warning m-1">edit</button><button className="btn btn-danger m-1">delete</button></td>
+        <td><button onClick={ () => navigate('/admin/editproduct')} className="btn btn-warning m-1">edit</button><button className="btn btn-danger m-1">delete</button></td>
       </tr>
     ))}
   </tbody>

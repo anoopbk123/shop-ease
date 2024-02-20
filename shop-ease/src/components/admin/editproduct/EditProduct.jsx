@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-export default function CreateProduct() {
+export default function EditProduct() {
   const navigator = useNavigate();
   //product input
   const [productName, setProductName] = useState("");
@@ -87,8 +87,8 @@ const handleProductQuantityInput = (event) => {
   };
 
   return (
-    <div className="container mt-5 p-1" id="create-product-form">
-      <h2 className="mt-3 text-center">Create Product</h2>
+    <div className="container mt-5 p-1" id="edit-product-form">
+      <h2 className="mt-3 text-center">Edit Product</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="container mt-5 form-container justify-content-center">
           {/* Product Picture */}
@@ -233,7 +233,7 @@ const handleProductQuantityInput = (event) => {
           {/* submit */}
           <div className="text-center">
             <button type="submit" className="btn btn-primary mb-3">
-              Add Product
+              Edit Product
             </button>
           </div>
         </div>

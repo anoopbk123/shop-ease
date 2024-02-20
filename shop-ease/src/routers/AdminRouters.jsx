@@ -4,6 +4,7 @@ import AdminLoginPage from '../pages/admin/AdminLoginPage'
 import CreateProductPage from '../pages/admin/CreateProductPage'
 import UserList from '../pages/admin/UserList'
 import ManageProductsPage from '../pages/admin/ManageProductsPage'
+import EditProductPage from '../pages/admin/EditProductPage'
 
 export default function AdminRouters() {
   return (
@@ -13,6 +14,7 @@ export default function AdminRouters() {
         <Route path='/createproduct' element={<CreateProductPage/>} />
         <Route path='/userlist' element={<UserList/>}/>
         <Route path='/manageproducts' element={<ManageProductsPage/>}/>
+        <Route path='/editproduct' element={<EditProductPage/>}/>
       </Routes>
     </>
   )
