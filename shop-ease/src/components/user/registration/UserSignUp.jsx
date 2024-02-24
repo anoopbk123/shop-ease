@@ -4,6 +4,7 @@ import formValidator from "../../../data/formValidator";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
+import { userSignup } from "../../../Services/userApi";
 
 export default function UserSignUp() {
   const navigator = useNavigate();
@@ -90,11 +91,24 @@ const handleAddressInput = (event) => {
   setAddressError(formValidator.address(addressInput))
 }
   //form submit
-  const submitForm = (formData) => {
-    console.log(formData);
-    toast.success("sign up success");
-    navigator("/login");
-  };
+  const submitForm = async (values) => {
+    const {data} = await userSignup(values);
+    if(data.status){
+      toast.success('signup success');
+      navigator("/login");
+    }
+    else{
+      toast.error('error')
+    }
+  }
+
+  // (formData) => {
+  //   console.log(formData);
+  //   toast.success("sign up success");
+  //   // navigator("/login");
+  // };
+  
+  //error validation
   const handleFormSubmit = (event) => {
     event.preventDefault();
     console.log("hh");
@@ -116,9 +130,11 @@ const handleAddressInput = (event) => {
       console.log("hh");
     } else {
       submitForm({
-        userName: userName,
-        email: email,
-        password: password,
+        userName,
+        email,
+        password,
+        phone,
+        address
       });
     }
   };
