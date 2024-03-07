@@ -91,22 +91,22 @@ const handleAddressInput = (event) => {
   setAddressError(formValidator.address(addressInput))
 }
   //form submit
-  const submitForm = async (values) => {
-    const {data} = await userSignup(values);
-    if(data.status){
-      toast.success('signup success');
-      navigator("/login");
-    }
-    else{
-      toast.error('error')
-    }
-  }
+  // const submitForm = async (values) => {
+  //   const {data} = await userSignup(values);
+  //   if(data.status){
+  //     toast.success('signup success');
+  //     navigator("/login");
+  //   }
+  //   else{
+  //     toast.error('error')
+  //   }
+  // }
 
-  // (formData) => {
-  //   console.log(formData);
-  //   toast.success("sign up success");
-  //   // navigator("/login");
-  // };
+  const submitForm = (formData) => {
+    console.log(formData);
+    toast.success("sign up success");
+    navigator("/login");
+  };
   
   //error validation
   const handleFormSubmit = (event) => {

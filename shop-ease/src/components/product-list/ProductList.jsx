@@ -18,7 +18,7 @@ export default function ProductList() {
           </p>
         </div>
         <div>
-        <Link to="/productdetails" class="btn btn-primary">
+        <Link to="/productdetails" class="btn btn-info">
             view details
           </Link>
         </div>

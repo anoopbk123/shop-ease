@@ -35,9 +35,9 @@ export default function UserNavbar() {
                 </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <Link class="nav-link" href="#">
                   Cart
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
                 <Link class="nav-link" to="/userprofile">

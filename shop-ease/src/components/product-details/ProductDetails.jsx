@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import features from "../../data/features";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import icons from '../../data/icons'
 
 export default function ProductDetails() {
+  const navigator = useNavigate()
   // const [product, setProduct] = useState(null)
   // const productId = useParams(pid)
   // useEffect(() => {
@@ -27,6 +28,13 @@ export default function ProductDetails() {
             </button>
           </div>
         </div>
+      </div>
+      <div className="text-left">
+      <button onClick={()=>{
+        navigator(-1)
+      }} type="submit" className="btn btn-secondary">
+             &larr; Go Back
+            </button>
       </div>
     </div>
   );

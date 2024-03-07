@@ -19,6 +19,8 @@ export default function UserRouters() {
       <Route path='/products' element={<Products/>} />
       <Route path='/productdetails' element={<ProductDetailsPage/>}/>
       <Route path='/userprofile' element={<UserProfile/>}/>
+      {/* Default route */}
+      <Route path='*' element={<HomePage/>}/>
     </Routes>
     </>
   )
