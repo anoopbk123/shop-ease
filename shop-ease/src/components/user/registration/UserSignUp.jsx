@@ -25,7 +25,7 @@ export default function UserSignUp() {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   // const [confirmPassword, setConfirmPassword] = useState("");
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState("");
   //toggle password
   const togglePassword = () => {
     if (passwordView.view === "password") {
@@ -53,16 +53,16 @@ export default function UserSignUp() {
     setEmailError(formValidator.email(emailInput));
   };
   //password validation
-//   const handleConfirmPasswordError = () => {
-//     setConfirmPasswordError(confirmPassword !== password && confirmPassword !== '')
-//     // if(confirmPassword === password){
-//     //     setConfirmPasswordError(true)
-//     // }
-//     // else{
-//     //     setConfirmPasswordError(false)
-//     // }
-    
-//   }
+  //   const handleConfirmPasswordError = () => {
+  //     setConfirmPasswordError(confirmPassword !== password && confirmPassword !== '')
+  //     // if(confirmPassword === password){
+  //     //     setConfirmPasswordError(true)
+  //     // }
+  //     // else{
+  //     //     setConfirmPasswordError(false)
+  //     // }
+
+  //   }
   const handlePasswordInput = (event) => {
     const passwordInput = event.target.value;
     setPassword(passwordInput);
@@ -70,26 +70,26 @@ export default function UserSignUp() {
     //handleConfirmPasswordError();
   };
   //confirm password validation
-//   const handleConfirmPasswordInput = (event) => {
-//     const confirmPasswordInput = event.target.value;
-//     setConfirmPassword(confirmPasswordInput);
-//     //handleConfirmPasswordError();
-//   };
-//   useEffect(() => {
-//     handleConfirmPasswordError();
-//   }, [password, confirmPassword]);
-//phone validation
-const handlePhoneInput = (event) => {
-  const phoneInput = event.target.value;
-  setPhone(phoneInput);
-  setPhoneError(formValidator.phoneNumber(phoneInput));
-}
-//address
-const handleAddressInput = (event) => {
-  const addressInput = event.target.value;
-  setAddress(addressInput);
-  setAddressError(formValidator.address(addressInput))
-}
+  //   const handleConfirmPasswordInput = (event) => {
+  //     const confirmPasswordInput = event.target.value;
+  //     setConfirmPassword(confirmPasswordInput);
+  //     //handleConfirmPasswordError();
+  //   };
+  //   useEffect(() => {
+  //     handleConfirmPasswordError();
+  //   }, [password, confirmPassword]);
+  //phone validation
+  const handlePhoneInput = (event) => {
+    const phoneInput = event.target.value;
+    setPhone(phoneInput);
+    setPhoneError(formValidator.phoneNumber(phoneInput));
+  };
+  //address
+  const handleAddressInput = (event) => {
+    const addressInput = event.target.value;
+    setAddress(addressInput);
+    setAddressError(formValidator.address(addressInput));
+  };
   //form submit
   // const submitForm = async (values) => {
   //   const {data} = await userSignup(values);
@@ -102,16 +102,29 @@ const handleAddressInput = (event) => {
   //   }
   // }
 
-  const submitForm = (formData) => {
-    console.log(formData);
-    toast.success("sign up success");
-    navigator("/login");
+  const submitForm = async (formData) => {
+    // console.log(formData);
+    // toast.success("sign up success");
+    // navigator("/login");
+    try {
+      const response = await userSignup(formData);
+      const data = await response.data;
+      if (data.status) {
+        toast.success(data.message);
+        navigator("/login");
+      }
+      else{
+        toast.error(data.message)
+      }
+    } catch (err) {
+      toast.error(err.message)
+    }
   };
-  
+
   //error validation
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("hh");
+    // console.log("hh");
     if (
       [
         userName,
@@ -123,18 +136,18 @@ const handleAddressInput = (event) => {
         emailError,
         passwordError,
         phoneError,
-        addressError
+        addressError,
       ].some((value) => value === "" || value === false)
     ) {
       toast.error("please fill all fields without errors");
-      console.log("hh");
+      // console.log("hh");
     } else {
       submitForm({
         userName,
         email,
         password,
         phone,
-        address
+        address,
       });
     }
   };

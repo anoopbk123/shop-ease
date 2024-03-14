@@ -4,6 +4,7 @@ import formValidator from "../../../data/formValidator";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from "react-router-dom";
+import { userLogin } from "../../../Services/userApi";
 
 export default function UserLogin() {
   const navigator = useNavigate()
@@ -44,10 +45,28 @@ export default function UserLogin() {
     setPasswordError(formValidator.password(passwordInput));
   }
   //form submit
-  const submitForm = (formData) => {
-    console.log(formData)
-    toast.success('login success')
-    navigator('/')
+  const submitForm = async (formData) => {
+
+    try{
+      const response = await userLogin(formData)
+      const data = await response.data
+      if(data.status){
+        toast.success(data.message)
+        navigator('/')
+      }
+      else{
+        toast.error(data.message)
+      }
+
+    }
+    catch(err){
+      toast.error(err.message)
+    }
+
+
+    // console.log(formData)
+    // toast.success('login success')
+    // navigator('/')
   }
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -58,8 +77,8 @@ export default function UserLogin() {
     }
     else{
       submitForm({
-        email:email,
-        password:password
+        email,
+        password,
       })
     }
   }
