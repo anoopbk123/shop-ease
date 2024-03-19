@@ -108,7 +108,7 @@ export default function UserSignUp() {
     // navigator("/login");
     try {
       const response = await userSignup(formData);
-      const data = await response.data;
+      const data = response.data;
       if (data.status) {
         toast.success(data.message);
         navigator("/login");

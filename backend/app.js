@@ -1,7 +1,8 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 4000
+const HOSTNAME = process.env.HOSTNAME || 'localhost'
 const dbConnection = require('./Config/dbConnection')
 const cors = require('cors')
 const path = require('path')
@@ -34,8 +35,8 @@ app.get('*', (req, res) =>{
     res.json('404')
 })
 
-app.listen(PORT,() => {
-    console.log('server running at ', PORT)
+app.listen(PORT, HOSTNAME,() => {
+    console.log('server running at ', `http://${HOSTNAME}:${PORT}`)
 })
 
 

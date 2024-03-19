@@ -49,7 +49,8 @@ export default function UserLogin() {
 
     try{
       const response = await userLogin(formData)
-      const data = await response.data
+      console.log('response',response)
+      const data = response.data
       if(data.status){
         toast.success(data.message)
         navigator('/')
