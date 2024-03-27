@@ -1,9 +1,17 @@
 import React from "react";
 import "../../styles/Navbar.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUserAuth } from "../../../Redux/slices/userAuth";
 
 export default function UserNavbar() {
-  const navigators = ['']
+  const dispatch = useDispatch();
+  const isAuthorized = useSelector((state) => state.isAuthorizedUser);
+  const navigators = [""];
+  const handleLogout = () => {
+    localStorage.removeItem("userToken");
+    dispatch(updateUserAuth());
+  };
   return (
     <header>
       <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
@@ -34,21 +42,34 @@ export default function UserNavbar() {
                   Products
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" href="#">
-                  Cart
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/userprofile">
-                  Profile
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
+
+              {isAuthorized ? (
+                <>
+                  <li class="nav-item">
+                    <Link class="nav-link" href="#">
+                      Cart
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link class="nav-link" to="/userprofile">
+                      Profile
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link class="nav-link" to="/login">
+                      <button onClick={handleLogout} className="btn btn-danger">
+                        Logout
+                      </button>
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <li class="nav-item">
+                  <Link class="nav-link" to="/login">
+                    Login
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

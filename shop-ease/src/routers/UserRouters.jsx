@@ -7,8 +7,10 @@ import HomePage from '../pages/user/HomePage'
 import Products from '../pages/user/Products'
 import ProductDetailsPage from '../pages/user/ProductDetailsPage'
 import UserProfile from '../pages/user/UserProfile'
+import { useSelector } from 'react-redux'
 
 export default function UserRouters() {
+  const isAuthorized = useSelector((state)=>state.isAuthorizedUser)
   return (
     <>
     <UserNavbar/>
@@ -18,7 +20,9 @@ export default function UserRouters() {
       <Route path='/signup' element={<Registration/>}/>
       <Route path='/products' element={<Products/>} />
       <Route path='/productdetails' element={<ProductDetailsPage/>}/>
-      <Route path='/userprofile' element={<UserProfile/>}/>
+      {
+        isAuthorized&&<Route path='/userprofile' element={<UserProfile/>}/>
+      }
       {/* Default route */}
       <Route path='*' element={<HomePage/>}/>
     </Routes>

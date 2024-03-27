@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import AdminLoginPage from '../pages/admin/AdminLoginPage'
 import CreateProductPage from '../pages/admin/CreateProductPage'
 import UserList from '../pages/admin/UserList'
@@ -19,3 +19,21 @@ export default function AdminRouters() {
     </>
   )
 }
+
+{/* <Routes>
+<Route path='/login' element={<AdminLoginPage/>} />
+  {
+  isAuthorizedAdmin?<>
+        <Route path='/' element={<ManageProductsPage/>} />
+        <Route path='/createproduct' element={<CreateProductPage/>} />
+        <Route path='/userlist' element={<UserList/>}/>
+        <Route path='/editproduct' element={<EditProductPage/>}/>
+        <Route path='/*' element={<Navigate to='/'/>}/>
+  </>
+  :
+  <>
+  <Route path='/*' element={<Navigate to='/login'/>}/>
+  </>
+  }
+        
+</Routes> */}

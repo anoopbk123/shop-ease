@@ -5,8 +5,11 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from "react-router-dom";
 import { userLogin } from "../../../Services/userApi";
+import { useDispatch } from "react-redux";
+import { updateUserAuth } from "../../../Redux/slices/userAuth";
 
 export default function UserLogin() {
+  const dispatch = useDispatch()
   const navigator = useNavigate()
   const [passwordView, setPasswordView] = useState({
     view: "password",
@@ -53,6 +56,9 @@ export default function UserLogin() {
       const data = response.data
       if(data.status){
         toast.success(data.message)
+        console.log('jwt token',data.token)
+        localStorage.setItem('userToken', data.token)
+        dispatch(updateUserAuth())
         navigator('/')
       }
       else{
