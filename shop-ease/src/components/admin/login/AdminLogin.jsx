@@ -4,6 +4,7 @@ import formValidator from "../../../data/formValidator";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
+import { adminLogin } from "../../../Services/adminApi";
 
 export default function AdminLogin() {
   const navigator = useNavigate();
@@ -44,10 +45,24 @@ export default function AdminLogin() {
     setPasswordError(formValidator.password(passwordInput));
   };
   //form submit
-  const submitForm = (formData) => {
-    console.log(formData);
-    toast.success("login success");
-    navigator("/admin/createproduct");
+  const submitForm = async (formData) => {
+    // console.log(formData);
+    // toast.success("login success");
+    // navigator("/admin/manageproducts");
+    try{
+      const res = await adminLogin(formData);
+      const data = res.data
+      if(data.status){
+       toast.success(data.message) 
+       navigator("/admin/manageproducts");
+      }
+      else{
+        toast.error(data.message)
+      }
+    }
+    catch(err){
+      toast.error(err)
+    }
   };
   const handleFormSubmit = (event) => {
     event.preventDefault();

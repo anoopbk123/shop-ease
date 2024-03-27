@@ -1,4 +1,4 @@
-const userModel = require("../Models/userModel");
+const userModel = require("../Models/userModel")
 const bcrypt = require("bcrypt");
 //signup
 module.exports.signup = async (req, res, next) => {
@@ -6,7 +6,7 @@ module.exports.signup = async (req, res, next) => {
   try {
     const emailExist = await userModel.findOne({ email });
     if (emailExist) {
-      console.log(email);
+      // console.log(email);
       return res.json({
         message: "Email already exists, please login",
         status: false,

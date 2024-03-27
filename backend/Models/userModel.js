@@ -33,6 +33,7 @@ const userSchema = new mongoose.Schema({
     },
 })
 
+//here cannot use arrow function because this keyword will represent the class not the object
 userSchema.pre("save", async function (next){
     if(this.isModified("password")){
         const salt = await bcrypt.genSalt()

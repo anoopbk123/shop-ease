@@ -4,6 +4,6 @@ const cors = require('cors')
 const {signup, userLogin} = require('../Controllers/userController')
 
 router.post("/signup", signup)
-router.post("/user-login", userLogin)
+router.post("/login", userLogin)
 
 module.exports = router;

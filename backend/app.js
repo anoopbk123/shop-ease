@@ -7,6 +7,7 @@ const dbConnection = require('./Config/dbConnection')
 const cors = require('cors')
 const path = require('path')
 const userRouters = require('./Routers/userRoutes')
+const adminRouters = require('./Routers/adminRouters')
 
 //data base connection 
 dbConnection.dbConnect()
@@ -18,6 +19,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/', userRouters);
+app.use('/admin', adminRouters);
 
 
 // app.get('/:name/:age',(req, res) => {

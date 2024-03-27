@@ -7,5 +7,5 @@ export const userSignup = values => {
 }
 
 export const userLogin = values => {
-    return userInstance.post("/user-login", {...values})
+    return userInstance.post("/login", {...values})
 }
