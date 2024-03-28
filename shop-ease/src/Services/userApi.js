@@ -14,3 +14,8 @@ export const userLogin = values => {
 export const userProfile = ()=>{
     return userInstance.get('/profile');
 }
+
+//PUT METHODS
+export const userProfileEdit = (values) => {
+    return userInstance.put("/editprofile", {...values})
+}

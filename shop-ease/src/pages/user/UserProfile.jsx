@@ -23,11 +23,11 @@ export default function UserProfile() {
       }
       else{
         setUser(data.user)
-        console.log(data)
+        // console.log(data)
       }
     } catch (err) {
       navigator(-1);
-      toast.error(err);
+      toast.error(err.message);
     }
   };
   useEffect(()=>{
@@ -37,7 +37,7 @@ export default function UserProfile() {
     <div className="container user-profile-container">
       <div className="container mt-5 pt-5 mx-auto">
         <h2 className="h2">Profile</h2>
-        <ProfileCard userDetails={user} />
+        <ProfileCard updateData ={fetchUserData} userDetails={user} />
       </div>
     </div>
   );

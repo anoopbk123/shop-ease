@@ -105,3 +105,31 @@ module.exports.userProfile = async (req, res)=>{
     })
 }
 }
+
+//Edit profile
+module.exports.editUserProfile = async(req, res)=>{
+  try{
+    const {_id} = req.user
+    const {address} = req.body
+    console.log(address)
+    const editedData = await userModel.findByIdAndUpdate(_id, {address})
+    if(editedData){
+      res.json({
+        message:'updated successfully',
+        status:true
+      })
+    }
+    else{
+      res.json({
+        message:'update failed',
+        status:false
+      })
+    }
+  }
+  catch(err){
+    res.json({
+        message:err,
+        status:false
+    })
+}
+}
